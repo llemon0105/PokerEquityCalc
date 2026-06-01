@@ -36,21 +36,25 @@ public class MonteCarloEngine {
             villain.addAll(community);
 
             HandEvaluator evaluator = new HandEvaluator();
-            int score1 = evaluator.evaluateHand(hero);
-            int score2 = evaluator.evaluateHand(villain);
+            int score1 = evaluator.evaluateBestHand(hero);
+            int score2 = evaluator.evaluateBestHand(villain);
 
-            if(score1 > score2){
-                wins ++;
-            }else if(score1 < score2){
-                losses ++;
-            }else{
-                ties ++;
+            if (score1 > score2) {
+                wins++;
+            } else if (score1 < score2) {
+                losses++;
+            } else {
+                ties++;
             }
         }
-        System.out.println("Results after 10,000 simulations:");
-        System.out.println("Win: " + (wins * 100.0/ 1000) + "%");
-        System.out.println("Loss: " + (losses * 100.0/ 1000) + "%");
-        System.out.println("Tie: " + (ties * 100.0/ 1000) + "%");
+        System.out.print("Your hand: ");
+        for(int k = 0; k < p1.size(); k ++){
+                    System.out.print(p1.get(k) + " ");
+        };
+        System.out.println("\nResults after 10,000 simulations:");
+        System.out.println("Win: " + (wins * 100.0 / 10000) + "%");
+        System.out.println("Loss: " + (losses * 100.0 / 10000) + "%");
+        System.out.println("Tie: " + (ties * 100.0 / 10000) + "%");
     }
 
 

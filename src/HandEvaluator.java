@@ -176,11 +176,26 @@ public class HandEvaluator {
             return "Three of a Kind";
         } else if (score == 3) {
             return "Two Pair";
-        } else if (score == 2){
+        } else if (score == 2) {
             return "Pair";
-        }else{
+        } else {
             return "High Card";
         }
+    }
+
+    public int evaluateBestHand(ArrayList<Card> sevenCards) {
+        int best = 0;
+
+        for (int i = 0; i < sevenCards.size(); i++) {
+            for (int j = i + 1; j < sevenCards.size(); j++) {
+                ArrayList<Card> fiveCards = new ArrayList<>(sevenCards);
+                fiveCards.remove(j);
+                fiveCards.remove(i);
+                int score = evaluateHand(fiveCards);
+                if (score > best) best = score;
+            }
+        }
+        return best;
     }
 
 

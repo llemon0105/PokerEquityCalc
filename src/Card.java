@@ -46,12 +46,12 @@ public class Card {
     }
 
     @Override
-    public boolean equals(Object o){
-        if(o == this){
+    public boolean equals(Object o) {
+        if (o == this) {
             return true;
         }
 
-        if(!(o instanceof Card)){
+        if (!(o instanceof Card)) {
             return false;
         }
 

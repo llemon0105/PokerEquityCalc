@@ -17,23 +17,27 @@ public class Main {
 //        System.out.println(d1.getCards().size());
 //        System.out.println(d1.dealCard());
 
-        Deck d1 = new Deck();
-        d1.shuffle();
-        ArrayList<Card> cards = new ArrayList<Card>();
-
-        for (int i = 0; i < 5; i++) {
-            cards.add(d1.dealCard());
-        }
-        System.out.println(cards);
-
-        HandEvaluator h = new HandEvaluator();
+//        Deck d1 = new Deck();
+//        d1.shuffle();
+//        ArrayList<Card> cards = new ArrayList<Card>();
+//
+//        for (int i = 0; i < 5; i++) {
+//            cards.add(d1.dealCard());
+//        }
+//        System.out.println(cards);
+//
+//        HandEvaluator h = new HandEvaluator();
 //        boolean ans = h.isTwoPair(cards);
 //        System.out.println(ans);
 //        boolean three = h.isThreeOfAKind(cards);
 //        System.out.println(three);
-        String title = h.handTitle(cards);
-        System.out.println(title);
+//        String title = h.handTitle(cards);
+//        System.out.println(title);
+        ArrayList<Card> p1 = new ArrayList<Card>();
+        p1.add(new Card(14, "Spades"));
+        p1.add(new Card(14, "Clubs"));
 
-
+        MonteCarloEngine p = new MonteCarloEngine(p1);
+        p.runSimulation();
     }
 }
