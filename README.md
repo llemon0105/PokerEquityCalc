@@ -18,7 +18,9 @@ of winning against a random opponent's hand.
 
 Option 1 - Specify your own cards:
 ArrayList<Card> p1 = new ArrayList<>();
+
 p1.add(new Card(14, "Spades"));  // Ace of Spades
+
 p1.add(new Card(14, "Clubs"));  // Ace of Clubs
 
 Option 2 - Deal random hole cards:
