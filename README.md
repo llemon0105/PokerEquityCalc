@@ -37,9 +37,13 @@ p1.add(deck.dealCard());
 
 ## Example Output
 Your hand: A♠ A♣
+
 Results after 10,000 simulations:
+
 Win:  49.6%
+
 Loss: 13.7%
+
 Tie:  36.7%
 
 Note: Tie % is elevated due to known limitation — see Known Limitations below.
