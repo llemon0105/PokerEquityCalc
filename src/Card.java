@@ -45,5 +45,19 @@ public class Card {
         return rankStr + suitSym;
     }
 
+    @Override
+    public boolean equals(Object o){
+        if(o == this){
+            return true;
+        }
+
+        if(!(o instanceof Card)){
+            return false;
+        }
+
+        Card other = (Card) o;
+        return this.rank == other.rank && this.suit.equals(other.suit);
+    }
+
 
 }

@@ -29,9 +29,10 @@ public class Main {
         HandEvaluator h = new HandEvaluator();
 //        boolean ans = h.isTwoPair(cards);
 //        System.out.println(ans);
-
-        boolean three = h.isThreeOfAKind(cards);
-        System.out.println(three);
+//        boolean three = h.isThreeOfAKind(cards);
+//        System.out.println(three);
+        String title = h.handTitle(cards);
+        System.out.println(title);
 
 
     }
