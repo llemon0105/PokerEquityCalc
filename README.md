@@ -14,28 +14,7 @@ of winning against a random opponent's hand.
 ## How to Run
 1. Clone the repository
 2. Open in IntelliJ IDEA
-3. In Main.java, choose one of the two ways to set your hole cards:
-
-Option 1 - Specify your own cards:
-
-ArrayList<Card> p1 = new ArrayList<>();
-
-p1.add(new Card(14, "Spades"));  // Ace of Spades
-
-p1.add(new Card(14, "Clubs"));  // Ace of Clubs
-
-Option 2 - Deal random hole cards:
-
-Deck deck = new Deck();
-
-deck.shuffle();
-
-ArrayList<Card> p1 = new ArrayList<>();
-
-p1.add(deck.dealCard());
-
-p1.add(deck.dealCard());
-
+3. In Main.java, choose Option 1 (specify your own cards) or Option 2 (random cards) — instructions are commented in the file
 4. Run Main.java
 
 ## Technologies
@@ -48,13 +27,11 @@ Your hand: A♠ A♣
 
 Results after 10,000 simulations:
 
-Win:  49.6%
+Win:  86.17%
 
-Loss: 13.7%
+Loss: 13.74%
 
-Tie:  36.7%
-
-Note: Tie % is elevated due to known limitation — see Known Limitations below.
+Tie:  0.09%
 
 ## Roadmap
 - [ ] Tiebreaker/kicker comparison within same hand category
