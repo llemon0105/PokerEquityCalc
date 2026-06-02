@@ -1,43 +1,21 @@
-import java.security.spec.RSAOtherPrimeInfo;
 import java.util.ArrayList;
 
 public class Main {
-
     public static void main(String[] args) {
 
-//        Card c1 = new Card(11, "Hearts");
-//        System.out.println(c1);
-//
-//        Card c2 = new Card(1,"Spades");
-//        System.out.println(c2);
+        // Option 1 - Specify your own cards:
+        ArrayList<Card> p1 = new ArrayList<>();
+        p1.add(new Card(14, "Spades"));  // Ace of Spades
+        p1.add(new Card(14, "Clubs"));   // Ace of Clubs
 
-//        Deck d1 = new Deck();
-//        System.out.println(d1.getCards().size());
-//        System.out.println(d1.dealCard());
-//        System.out.println(d1.getCards().size());
-//        System.out.println(d1.dealCard());
+        // Option 2 - Deal random hole cards (comment out Option 1 and uncomment this):
+        // Deck deck = new Deck();
+        // deck.shuffle();
+        // ArrayList<Card> p1 = new ArrayList<>();
+        // p1.add(deck.dealCard());
+        // p1.add(deck.dealCard());
 
-//        Deck d1 = new Deck();
-//        d1.shuffle();
-//        ArrayList<Card> cards = new ArrayList<Card>();
-//
-//        for (int i = 0; i < 5; i++) {
-//            cards.add(d1.dealCard());
-//        }
-//        System.out.println(cards);
-//
-//        HandEvaluator h = new HandEvaluator();
-//        boolean ans = h.isTwoPair(cards);
-//        System.out.println(ans);
-//        boolean three = h.isThreeOfAKind(cards);
-//        System.out.println(three);
-//        String title = h.handTitle(cards);
-//        System.out.println(title);
-        ArrayList<Card> p1 = new ArrayList<Card>();
-        p1.add(new Card(14, "Spades"));
-        p1.add(new Card(14, "Clubs"));
-
-        MonteCarloEngine p = new MonteCarloEngine(p1);
-        p.runSimulation();
+        MonteCarloEngine engine = new MonteCarloEngine(p1);
+        engine.runSimulation();
     }
 }

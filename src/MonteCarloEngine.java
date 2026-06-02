@@ -44,13 +44,21 @@ public class MonteCarloEngine {
             } else if (score1 < score2) {
                 losses++;
             } else {
-                ties++;
+                int tieBreak = evaluator.breakTie(hero, villain, score1);
+                if (tieBreak == 1) {
+                    wins++;
+                } else if (tieBreak == 2) {
+                    losses++;
+                } else {
+                    ties++;
+                }
             }
         }
         System.out.print("Your hand: ");
-        for(int k = 0; k < p1.size(); k ++){
-                    System.out.print(p1.get(k) + " ");
-        };
+        for (int k = 0; k < p1.size(); k++) {
+            System.out.print(p1.get(k) + " ");
+        }
+        ;
         System.out.println("\nResults after 10,000 simulations:");
         System.out.println("Win: " + (wins * 100.0 / 10000) + "%");
         System.out.println("Loss: " + (losses * 100.0 / 10000) + "%");

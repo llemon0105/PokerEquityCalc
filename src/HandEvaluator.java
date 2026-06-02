@@ -198,5 +198,22 @@ public class HandEvaluator {
         return best;
     }
 
+    public int breakTie(ArrayList<Card> hand1, ArrayList<Card> hand2, int handScore) {
+        ArrayList<Card> sorted1 = new ArrayList<Card>(hand1);
+        sorted1.sort(Comparator.comparingInt(Card::getRank).reversed());
+        ArrayList<Card> sorted2 = new ArrayList<Card>(hand2);
+        sorted2.sort(Comparator.comparingInt(Card::getRank).reversed());
+
+        for (int i = 0; i < sorted1.size(); i++) {
+            if (sorted1.get(i).getRank() > sorted2.get(i).getRank()) {
+                return 1;
+            }
+            if (sorted1.get(i).getRank() < sorted2.get(i).getRank()) {
+                return 2;
+            }
+        }
+        return 0;
+    }
+
 
 }
