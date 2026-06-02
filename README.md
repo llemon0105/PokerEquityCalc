@@ -48,13 +48,11 @@ Your hand: A♠ A♣
 
 Results after 10,000 simulations:
 
-Win:  49.6%
+Win:  86.17%
 
-Loss: 13.7%
+Loss: 13.74%
 
-Tie:  36.7%
-
-Note: Tie % is elevated due to known limitation — see Known Limitations below.
+Tie:  0.09%
 
 ## Roadmap
 - [ ] Tiebreaker/kicker comparison within same hand category
