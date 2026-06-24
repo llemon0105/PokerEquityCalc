@@ -2,8 +2,10 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashMap;
 
+//Evaluates poker hands and determines the best hand from a set of cards
 public class HandEvaluator {
 
+    //Return true if all 5 cards share the same suit
     public boolean isFlush(ArrayList<Card> hand) {
         String firstSuit = hand.get(0).getSuit();
 
@@ -15,8 +17,11 @@ public class HandEvaluator {
         return true;
     }
 
+    //Returns true if the 5 cards form a consecutive sequence of ranks
     public boolean isStraight(ArrayList<Card> hand) {
+        //Copy to avoid modifying the original hand
         ArrayList<Card> sorted = new ArrayList<>(hand);
+        //Sort by rank to check consecutiveness
         sorted.sort(Comparator.comparingInt(Card::getRank));
 
         int firstRank = sorted.get(0).getRank();
@@ -29,7 +34,9 @@ public class HandEvaluator {
         return true;
     }
 
+    //Returns true if exactly two cards share the same rank
     public boolean isPair(ArrayList<Card> hand) {
+        //Count occurrences of each rank using a HashMap
         HashMap<Integer, Integer> rankCount = new HashMap<>();
 
         for (int i = 0; i < hand.size(); i++) {
@@ -45,6 +52,7 @@ public class HandEvaluator {
         return false;
     }
 
+    //Returns true if two different ranks each appear exactly twice
     public boolean isTwoPair(ArrayList<Card> hand) {
         HashMap<Integer, Integer> rankCount = new HashMap<>();
 
@@ -67,6 +75,7 @@ public class HandEvaluator {
         return false;
     }
 
+    //Returns true if exactly three cards share the same rank
     public boolean isThreeOfAKind(ArrayList<Card> hand) {
         HashMap<Integer, Integer> rankCount = new HashMap<>();
 
@@ -83,6 +92,7 @@ public class HandEvaluator {
         return false;
     }
 
+    //Returns true if the hand contain both a three of a kind and a pair
     public boolean isFullHouse(ArrayList<Card> hand) {
         HashMap<Integer, Integer> rankCount = new HashMap<>();
         boolean hasTwo = false;
@@ -104,6 +114,7 @@ public class HandEvaluator {
         return hasTwo && hasThree;
     }
 
+    //Return true if exactly four cards share the same rank
     public boolean isFourOfAKind(ArrayList<Card> hand) {
         HashMap<Integer, Integer> rankCount = new HashMap<>();
 
@@ -120,10 +131,12 @@ public class HandEvaluator {
         return false;
     }
 
+    //Returns true if the hand is both a straight and a flush
     public boolean isStraightFlush(ArrayList<Card> hand) {
         return isStraight(hand) && isFlush(hand);
     }
 
+    //Returns true if the hand is a straight flush with a lowest rank of 10 (10-J-Q-K-A)
     public boolean isRoyalFlush(ArrayList<Card> hand) {
         ArrayList<Card> sorted = new ArrayList<>(hand);
         sorted.sort(Comparator.comparingInt(Card::getRank));
@@ -133,6 +146,7 @@ public class HandEvaluator {
         return isStraightFlush(hand) && lowestRank == 10;
     }
 
+    //Evaluates a 5-card hand and returns a score from 1 (High Card) to 10 (Royal Flush)
     public int evaluateHand(ArrayList<Card> hand) {
         if (isRoyalFlush(hand)) {
             return 10;
@@ -157,6 +171,7 @@ public class HandEvaluator {
         }
     }
 
+    //Returns the name of the hand as a string based on its score
     public String handTitle(ArrayList<Card> hand) {
         int score = evaluateHand(hand);
 
@@ -183,12 +198,14 @@ public class HandEvaluator {
         }
     }
 
+    //Tries all 21 possible 5-card combinations from 7 cards and return the best score
     public int evaluateBestHand(ArrayList<Card> sevenCards) {
         int best = 0;
 
         for (int i = 0; i < sevenCards.size(); i++) {
             for (int j = i + 1; j < sevenCards.size(); j++) {
                 ArrayList<Card> fiveCards = new ArrayList<>(sevenCards);
+                //Remove higher index first to avoid index shifting
                 fiveCards.remove(j);
                 fiveCards.remove(i);
                 int score = evaluateHand(fiveCards);
@@ -198,7 +215,9 @@ public class HandEvaluator {
         return best;
     }
 
+    //Compares two hands of equal category and returns 1 if hand1 wins, 2 if hand2 wins, and 0 if true tie
     public int breakTie(ArrayList<Card> hand1, ArrayList<Card> hand2, int handScore) {
+        //Sort both hands highest to lowest for card-by-card comparison
         ArrayList<Card> sorted1 = new ArrayList<Card>(hand1);
         sorted1.sort(Comparator.comparingInt(Card::getRank).reversed());
         ArrayList<Card> sorted2 = new ArrayList<Card>(hand2);
@@ -214,6 +233,4 @@ public class HandEvaluator {
         }
         return 0;
     }
-
-
 }
