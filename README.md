@@ -9,13 +9,14 @@ of winning against a random opponent's hand.
 - Hand evaluator supporting all 10 poker hand rankings
 - Best 5-card selection from 7 cards (2 hole cards + 5 community cards)
 - Monte Carlo simulation engine running 10,000 randomized runouts
+- Interactive CLI — enter your hole cards at runtime
 - Win/Loss/Tie equity output as percentages
 
 ## How to Run
 1. Clone the repository
 2. Open in IntelliJ IDEA
-3. In Main.java, choose Option 1 (specify your own cards) or Option 2 (random cards) — instructions are commented in the file
-4. Run Main.java
+3. Run Main.java
+4. Enter your two hole cards when prompted (rank as 2-14, suit as Hearts/Diamonds/Clubs/Spades)
 
 ## Technologies
 - Java 26
@@ -23,26 +24,22 @@ of winning against a random opponent's hand.
 - Git
 
 ## Example Output
+Enter card 1 rank (2-14, where 11=J, 12=Q, 13=K, 14=A): 14
+Enter card 1 suit (Hearts/Diamonds/Spades/Clubs): Spades
+Enter card 2 rank (2-14, where 11=J, 12=Q, 13=K, 14=A): 14
+Enter card 2 suit (Hearts/Diamonds/Spades/Clubs): Clubs
+
 Your hand: A♠ A♣
-
 Results after 10,000 simulations:
-
 Win:  86.17%
-
 Loss: 13.74%
-
 Tie:  0.09%
 
 ## Roadmap
-- [ ] Tiebreaker/kicker comparison within same hand category
+- [x] Interactive CLI input
+- [x] Tiebreaker logic using rank comparison
+- [ ] Category-specific tiebreakers (pair vs pair, flush vs flush, etc.)
 - [ ] Opponent range input (e.g. top 15% of hands)
 - [ ] Known board cards input (flop/turn/river)
 - [ ] JavaFX visual dashboard
 - [ ] Export results to CSV
-
-## Known Limitations
-- Tiebreaker logic within the same hand category is not yet implemented
-  (e.g. Ace-high flush vs King-high flush counts as a tie)
-- As a result, Tie % is inflated, and Win % is lower than real-world equity
-- Win + Tie combined (~86%) closely approximates true pocket aces equity
-- Future versions will implement kicker comparison for more accurate results
