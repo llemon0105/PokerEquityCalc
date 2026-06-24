@@ -25,14 +25,21 @@ of winning against a random opponent's hand.
 
 ## Example Output
 Enter card 1 rank (2-14, where 11=J, 12=Q, 13=K, 14=A): 14
+
 Enter card 1 suit (Hearts/Diamonds/Spades/Clubs): Spades
+
 Enter card 2 rank (2-14, where 11=J, 12=Q, 13=K, 14=A): 14
+
 Enter card 2 suit (Hearts/Diamonds/Spades/Clubs): Clubs
 
 Your hand: A♠ A♣
+
 Results after 10,000 simulations:
+
 Win:  86.17%
+
 Loss: 13.74%
+
 Tie:  0.09%
 
 ## Roadmap
