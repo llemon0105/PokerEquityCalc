@@ -32,14 +32,14 @@ public class MonteCarloEngine {
             p2.add(deck.dealCard());
 
             //Deal 5 community cards
-            ArrayList<Card> community = new ArrayList<Card>();
+            ArrayList<Card> community = new ArrayList<>();
             for (int j = 0; j < 5; j++) {
                 community.add(deck.dealCard());
             }
 
             //Combine hole cards and community cards into 7 cards
-            ArrayList<Card> hero = new ArrayList<Card>(p1);
-            ArrayList<Card> villain = new ArrayList<Card>(p2);
+            ArrayList<Card> hero = new ArrayList<>(p1);
+            ArrayList<Card> villain = new ArrayList<>(p2);
             hero.addAll(community);
             villain.addAll(community);
 

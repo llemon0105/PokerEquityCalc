@@ -69,10 +69,7 @@ public class HandEvaluator {
             }
         }
 
-        if (counter == 2) {
-            return true;
-        }
-        return false;
+        return counter == 2;
     }
 
     //Returns true if exactly three cards share the same rank
@@ -218,9 +215,9 @@ public class HandEvaluator {
     //Compares two hands of equal category and returns 1 if hand1 wins, 2 if hand2 wins, and 0 if true tie
     public int breakTie(ArrayList<Card> hand1, ArrayList<Card> hand2, int handScore) {
         //Sort both hands highest to lowest for card-by-card comparison
-        ArrayList<Card> sorted1 = new ArrayList<Card>(hand1);
+        ArrayList<Card> sorted1 = new ArrayList<>(hand1);
         sorted1.sort(Comparator.comparingInt(Card::getRank).reversed());
-        ArrayList<Card> sorted2 = new ArrayList<Card>(hand2);
+        ArrayList<Card> sorted2 = new ArrayList<>(hand2);
         sorted2.sort(Comparator.comparingInt(Card::getRank).reversed());
 
         for (int i = 0; i < sorted1.size(); i++) {

@@ -7,7 +7,7 @@ public class Deck {
 
     //Builds a full 52-card deck with all ranks (2-14) and suits
     public Deck() {
-        cards = new ArrayList<Card>();
+        cards = new ArrayList<>();
         String[] suits = {"Spades", "Clubs", "Hearts", "Diamonds"};
 
         for (int i = 0; i < 4; i++) {
