@@ -47,6 +47,7 @@ Tie:  0.09%
 - [x] Tiebreaker logic using rank comparison
 - [ ] Category-specific tiebreakers (pair vs pair, flush vs flush, etc.)
 - [ ] Opponent range input (e.g. top 15% of hands)
+- [ ] Multi-way pot support (3+ players)
 - [ ] Known board cards input (flop/turn/river)
 - [ ] JavaFX visual dashboard
 - [ ] Export results to CSV
